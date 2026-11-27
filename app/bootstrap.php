@@ -9,6 +9,7 @@ require BASE_PATH . '/app/core/DB.php';
 require BASE_PATH . '/app/core/Model.php';
 require BASE_PATH . '/app/core/Http.php';
 require BASE_PATH . '/app/core/Migrator.php';
+require BASE_PATH . '/app/core/AdminBootstrap.php';
 require BASE_PATH . '/app/models.php';
 require BASE_PATH . '/app/lib/Delhivery.php';
 require BASE_PATH . '/app/lib/Xlsx.php';

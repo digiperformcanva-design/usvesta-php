@@ -24,6 +24,7 @@ $req = null;
 try {
     session_boot();
     Migrator::ensure();
+    AdminBootstrap::run();
     $req = new Request();
     $router = require __DIR__ . '/app/routes.php';
     $resp = $router->dispatch($req);
