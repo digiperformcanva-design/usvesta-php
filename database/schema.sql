@@ -350,8 +350,7 @@ CREATE TABLE IF NOT EXISTS `cloth_app_merchant` (
   `created_at` DATETIME(6) NOT NULL,
   `user_id` BIGINT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `uq_user_id` (`user_id`),
-  KEY `ix_user_id` (`user_id`)
+  UNIQUE KEY `uq_user_id` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `cloth_app_order` (
@@ -382,13 +381,11 @@ CREATE TABLE IF NOT EXISTS `cloth_app_order` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `uq_order_id` (`order_id`),
   KEY `ix_transaction_order_id` (`transaction_order_id`(64)),
-  KEY `ix_order_id` (`order_id`),
-  KEY `ix_transaction_id` (`transaction_id`),
+  KEY `ix_transaction_id` (`transaction_id`(64)),
   KEY `ix_user_id` (`user_id`),
   KEY `ix_product_id` (`product_id`),
-  KEY `ix_transaction_order_id` (`transaction_order_id`),
   KEY `ix_inner_color_product_id` (`inner_color_product_id`),
-  KEY `ix_shipment_id` (`shipment_id`)
+  KEY `ix_shipment_id` (`shipment_id`(64))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `cloth_app_our_trusted_client` (
@@ -414,7 +411,7 @@ CREATE TABLE IF NOT EXISTS `cloth_app_paymentorder` (
   `created_at` DATETIME(6) NOT NULL,
   `merchant_id` CHAR(32) NOT NULL,
   PRIMARY KEY (`payment_id`),
-  KEY `ix_order_id` (`order_id`),
+  KEY `ix_order_id` (`order_id`(64)),
   KEY `ix_merchant_id` (`merchant_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -562,7 +559,7 @@ CREATE TABLE IF NOT EXISTS `cloth_app_webhookdelivery` (
   `payment_order_id` TEXT NOT NULL,
   `webhook_endpoint_id` CHAR(32) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `ix_payment_order_id` (`payment_order_id`),
+  KEY `ix_payment_order_id` (`payment_order_id`(64)),
   KEY `ix_webhook_endpoint_id` (`webhook_endpoint_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -592,13 +589,13 @@ CREATE TABLE IF NOT EXISTS `cloth_app_wishlist` (
 
 CREATE TABLE IF NOT EXISTS `socialaccount_socialaccount` (
   `id` BIGINT NOT NULL AUTO_INCREMENT,
-  `provider` TEXT NOT NULL,
-  `uid` TEXT NOT NULL,
+  `provider` VARCHAR(200) NOT NULL,
+  `uid` VARCHAR(191) NOT NULL,
   `last_login` DATETIME(6) NOT NULL,
   `date_joined` DATETIME(6) NOT NULL,
   `user_id` BIGINT NOT NULL,
   `extra_data` LONGTEXT NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `uq_provider_uid` (`provider`, `uid`),
+  UNIQUE KEY `uq_provider_uid` (`provider`(191), `uid`),
   KEY `ix_user_id` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
