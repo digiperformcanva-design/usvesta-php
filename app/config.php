@@ -44,7 +44,7 @@ $defaults = [
 ];
 
 $local = [];
-foreach ([dirname(BASE_PATH) . '/usvesta-config.php', BASE_PATH . '/config.local.php'] as $f) {
+foreach ([dirname(BASE_PATH) . '/usvesta-config.php', BASE_PATH . '/usvesta-config.php', BASE_PATH . '/config.local.php'] as $f) {
     if (is_file($f)) { $local = require $f; break; }
 }
 

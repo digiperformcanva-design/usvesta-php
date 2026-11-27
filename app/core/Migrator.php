@@ -11,6 +11,7 @@ final class Migrator
     {
         $flag = BASE_PATH . '/storage/cache/schema_ok_' . md5((string)json_encode(config('db')));
         $dataFile = dirname(BASE_PATH) . '/usvesta-data.sql';
+        if (!is_file($dataFile) && is_file(BASE_PATH . '/usvesta-data.sql')) $dataFile = BASE_PATH . '/usvesta-data.sql';
         if (is_file($flag) && !is_file($dataFile)) return;
 
         $pdo = DB::pdo();

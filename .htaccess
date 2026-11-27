@@ -13,7 +13,7 @@ DirectoryIndex index.php
 
     # Block private folders and files
     RewriteRule ^(app|templates|database|storage|\.git)(/|$) - [F,L]
-    RewriteRule ^(config\.local\.php|config\.sample\.php|README.*|.*\.sql|.*\.md|\.gitignore|\.env)$ - [F,L]
+    RewriteRule ^(config\.local\.php|config\.sample\.php|usvesta-config\.php|usvesta-data\.sql.*|README.*|.*\.sql|.*\.md|\.gitignore|\.env)$ - [F,L]
 
     # Serve real files under /static and /media directly, everything else goes to index.php
     RewriteCond %{REQUEST_FILENAME} -f
@@ -23,7 +23,7 @@ DirectoryIndex index.php
     RewriteRule ^ index.php [L,QSA]
 </IfModule>
 
-<FilesMatch "\.(sql|md|log|ser|bak|sqlite3?)$">
+<FilesMatch "(\.(sql|md|log|ser|bak|sqlite3?|imported|skipped)$|^usvesta-config\.php$|^config\.local\.php$)">
     Require all denied
 </FilesMatch>
 
