@@ -396,7 +396,7 @@ CREATE TABLE IF NOT EXISTS `cloth_app_our_trusted_client` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `cloth_app_paymentorder` (
-  `payment_id` TEXT NOT NULL,
+  `payment_id` VARCHAR(191) NOT NULL,
   `mode` TEXT NOT NULL,
   `order_id` TEXT NOT NULL,
   `amount` DECIMAL(14,2) NOT NULL,
