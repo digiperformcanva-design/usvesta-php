@@ -4,8 +4,9 @@
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <title>
-   US Vesta Admin Panel - E-commerce Store
+   US VESTA Admin
   </title>
+  <meta name="robots" content="noindex, nofollow"/>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <!-- Font Awesome -->
@@ -14,80 +15,9 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
   <link href="/static/css/dashboard.css?v=20261005_2" rel="stylesheet"/>
   <link href="/static/css/custom-editor.css?v=20261005_2" rel="stylesheet" type="text/css"/>
-  <style>
-    /* Critical Sidebar and Header Space Optimization */
-    .container-fluid {
-      padding-top: 0 !important;
-    }
-    .sidebar {
-      position: fixed !important;
-      top: 0 !important;
-      left: 0 !important;
-      bottom: 0 !important;
-      width: 275px !important;
-      min-width: 275px !important;
-      max-width: 275px !important;
-      height: 100vh !important;
-      z-index: 1000 !important;
-      padding: 10px 0 !important;
-      overflow-y: auto !important;
-      box-sizing: border-box !important;
-      background: linear-gradient(180deg, #18181b 0%, #09090b 100%) !important;
-    }
-    .main-content {
-      margin-left: 275px !important;
-      width: calc(100% - 275px) !important;
-      max-width: calc(100% - 275px) !important;
-      padding: 8px 22px 28px 22px !important;
-    }
-    .main-content > .navbar {
-      margin-top: 0 !important;
-      margin-bottom: 12px !important;
-      padding-top: 8px !important;
-      padding-bottom: 8px !important;
-    }
-    .sidebar .nav-link {
-      font-size: 0.81rem !important;
-      font-weight: 500 !important;
-      padding: 7px 10px !important;
-      margin: 2px 4px !important;
-      white-space: nowrap !important;
-      letter-spacing: -0.15px !important;
-      display: flex !important;
-      align-items: center !important;
-      overflow: hidden !important;
-      text-overflow: ellipsis !important;
-      border-radius: 8px !important;
-      color: #a1a1aa !important;
-    }
-    .sidebar .nav-link:hover,
-    .sidebar .nav-link.active {
-      color: #fac13c !important;
-      background-color: rgba(255, 255, 255, 0.08) !important;
-    }
-    .sidebar .nav-link i {
-      width: 18px !important;
-      min-width: 18px !important;
-      margin-right: 8px !important;
-      font-size: 0.88rem !important;
-      text-align: center !important;
-      flex-shrink: 0 !important;
-    }
-    @media (max-width: 992px) {
-      .sidebar {
-        position: relative !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        height: auto !important;
-      }
-      .main-content {
-        margin-left: 0 !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 10px 12px !important;
-      }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="/static/css/admin-theme.css?v=20261128_1" rel="stylesheet"/>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js">
   </script>
   <meta content="Professional optimized web page with high performance, security compliance, and full mobile SEO optimization." name="description"/>
@@ -101,295 +31,240 @@
   <div class="container-fluid px-2 pt-0">
    <div class="row g-0">
     <!-- Sidebar -->
-    <div class="sidebar">
-     <div class="d-flex flex-column px-2 py-2">
-      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none justify-content-center w-100 py-2" href="/">
-       <img alt="Optimized page graphic asset" class="me-2 rounded-circle bg-white p-1" loading="lazy" src="/static/images/logo2.png" width="45"/>
-       <span class="fs-5 fw-bold text-uppercase tracking-wider" style="letter-spacing: 1px;">
-        US VESTA
-       </span>
-      </a>
-      <hr/>
-      <ul class="nav nav-pills flex-column mb-auto">
-       <li class="nav-item">
-        <a class="nav-link active" data-section="dashboard" href="#">
-         <i class="fas fa-tachometer-alt">
-         </i>
-         Dashboard
-        </a>
-       </li>
-       <li>
-        <a class="nav-link text-warning fw-bold" data-section="homepage_editor" href="#">
-         <i class="fas fa-home">
-         </i>
-         Homepage Editor
-        </a>
-       </li>
-       <li>
-        <a class="nav-link" data-section="products" href="#">
-         <i class="fas fa-box">
-         </i>
-         Products
-        </a>
-       </li>
-       <li>
-        <a class="nav-link" data-section="categories" href="#">
-         <i class="fas fa-tags">
-         </i>
-         Categories
-        </a>
-       </li>
-       <li>
-        <a class="nav-link" data-section="subcategories" href="#">
-         <i class="fas fa-sitemap">
-         </i>
-         Sub Categories
-        </a>
-       </li>
-       <li>
-        <a class="nav-link" data-section="orders" href="#">
-         <i class="fas fa-shopping-cart">
-         </i>
-         Orders
-        </a>
-       </li>
-       <li>
-        <a class="nav-link" data-section="abandonedcheckouts" href="#">
-         <i class="fas fa-shopping-basket">
-         </i>
-         Abandoned Checkouts
-        </a>
-       </li>
-       <li>
-        <a class="nav-link" data-section="returns" href="#">
-         <i class="fas fa-undo-alt">
-         </i>
-         Returns &amp; Cancellations
-        </a>
-       </li>
-       <li>
-        <a class="nav-link" data-section="Coordinatorsco" href="#">
-         <i class="fas fa-user-tie">
-         </i>
-         Men's Coordinator
-        </a>
-       </li>
-       <li>
-        <a class="nav-link" data-section="Reviews" href="#">
-         <i class="fas fa-star">
-         </i>
-         User Reviews
-        </a>
-       </li>
-       <li>
-        <a class="nav-link" data-section="banners" href="#">
-         <i class="fas fa-images">
-         </i>
-         Carousel Banners
-        </a>
-       </li>
-       <li>
-        <a class="nav-link" data-section="testimonials" href="#">
-         <i class="fas fa-comment-dots">
-         </i>
-         Testimonials
-        </a>
-       </li>
-       <li>
-        <a class="nav-link" data-section="trustedclients" href="#">
-         <i class="fas fa-handshake">
-         </i>
-         Trusted Clients
-        </a>
-       </li>
-       <li>
-        <a class="nav-link" data-section="instagram" href="#">
-         <i class="fab fa-instagram">
-         </i>
-         Instagram Feed
-        </a>
-       </li>
-       <li>
-        <a class="nav-link" data-section="aplus" href="#">
-         <i class="fas fa-star-of-life">
-         </i>
-         A+ Listings
-        </a>
-       </li>
-       <li>
-        <a class="nav-link" data-section="blogs" href="#">
-         <i class="fas fa-blog">
-         </i>
-         Blogs Post &amp; Cat
-        </a>
-       </li>
-       <li>
-        <a class="nav-link" data-section="contacts" href="#">
-         <i class="fas fa-envelope-open-text">
-         </i>
-         Contact Messages
-        </a>
-       </li>
-       <li>
-        <a class="nav-link" data-section="apikeys" href="#">
-         <i class="fas fa-key">
-         </i>
-         API Keys (Sync)
-        </a>
-       </li>
-
-       <li>
-        <a class="nav-link" data-section="analytics" href="#">
-         <i class="fas fa-chart-bar">
-         </i>
-         Analytics
-        </a>
-       </li>
-      </ul>
+    <div class="sidebar" id="avSidebar">
+     <a class="av-brand" href="/" target="_blank" title="Open the store">
+      <img alt="US VESTA" src="/static/images/logo2.png"/>
+      <span><span class="av-brand-name d-block">US VESTA</span><span class="av-brand-sub">Admin panel</span></span>
+     </a>
+     <div class="av-side-search">
+      <i class="fas fa-magnifying-glass"></i>
+      <input id="avSideFilter" type="text" placeholder="Jump to section…" autocomplete="off"/>
+     </div>
+     <ul class="av-nav">
+      <li class="av-nav-group">Overview</li>
+      <li>
+       <a class="nav-link active" data-section="dashboard" href="#dashboard">
+        <i class="fas fa-gauge-high"></i>
+        <span>Dashboard</span>{% if attention_total %}<span class="av-badge red">{{ attention_total }}</span>{% endif %}
+       </a>
+      </li>
+      <li>
+       <a class="nav-link" data-section="analytics" href="#analytics">
+        <i class="fas fa-chart-line"></i>
+        <span>Analytics</span>
+       </a>
+      </li>
+      <li class="av-nav-group">Catalog</li>
+      <li>
+       <a class="nav-link" data-section="products" href="#products">
+        <i class="fas fa-shirt"></i>
+        <span>Products</span><span class="av-badge">{{ total_products }}</span>
+       </a>
+      </li>
+      <li>
+       <a class="nav-link" data-section="categories" href="#categories">
+        <i class="fas fa-layer-group"></i>
+        <span>Categories</span>
+       </a>
+      </li>
+      <li>
+       <a class="nav-link" data-section="subcategories" href="#subcategories">
+        <i class="fas fa-sitemap"></i>
+        <span>Sub Categories</span>
+       </a>
+      </li>
+      <li class="av-nav-group">Sales</li>
+      <li>
+       <a class="nav-link" data-section="orders" href="#orders">
+        <i class="fas fa-bag-shopping"></i>
+        <span>Orders</span>{% if attention.new_orders %}<span class="av-badge hot">{{ attention.new_orders }}</span>{% endif %}
+       </a>
+      </li>
+      <li>
+       <a class="nav-link" data-section="returns" href="#returns">
+        <i class="fas fa-rotate-left"></i>
+        <span>Returns & Cancellations</span>{% if attention.returns %}<span class="av-badge red">{{ attention.returns }}</span>{% endif %}
+       </a>
+      </li>
+      <li>
+       <a class="nav-link" data-section="abandonedcheckouts" href="#abandonedcheckouts">
+        <i class="fas fa-cart-arrow-down"></i>
+        <span>Abandoned Checkouts</span>{% if attention.abandoned %}<span class="av-badge ">{{ attention.abandoned }}</span>{% endif %}
+       </a>
+      </li>
+      <li class="av-nav-group">Storefront</li>
+      <li>
+       <a class="nav-link" data-section="homepage_editor" href="#homepage_editor">
+        <i class="fas fa-wand-magic-sparkles"></i>
+        <span>Homepage Editor</span>
+       </a>
+      </li>
+      <li>
+       <a class="nav-link" data-section="banners" href="#banners">
+        <i class="fas fa-images"></i>
+        <span>Carousel Banners</span>
+       </a>
+      </li>
+      <li>
+       <a class="nav-link" data-section="Coordinatorsco" href="#Coordinatorsco">
+        <i class="fas fa-align-left"></i>
+        <span>Coordinators (SEO text)</span>
+       </a>
+      </li>
+      <li>
+       <a class="nav-link" data-section="aplus" href="#aplus">
+        <i class="fas fa-star-of-life"></i>
+        <span>A+ Listings</span>
+       </a>
+      </li>
+      <li>
+       <a class="nav-link" data-section="instagram" href="#instagram">
+        <i class="fas fa-camera-retro"></i>
+        <span>Instagram Feed</span>
+       </a>
+      </li>
+      <li>
+       <a class="nav-link" data-section="blogs" href="#blogs">
+        <i class="fas fa-pen-nib"></i>
+        <span>Blog</span>
+       </a>
+      </li>
+      <li class="av-nav-group">Engagement</li>
+      <li>
+       <a class="nav-link" data-section="Reviews" href="#Reviews">
+        <i class="fas fa-star"></i>
+        <span>Reviews</span>{% if attention.hidden_reviews %}<span class="av-badge hot">{{ attention.hidden_reviews }}</span>{% endif %}
+       </a>
+      </li>
+      <li>
+       <a class="nav-link" data-section="testimonials" href="#testimonials">
+        <i class="fas fa-quote-left"></i>
+        <span>Testimonials</span>
+       </a>
+      </li>
+      <li>
+       <a class="nav-link" data-section="trustedclients" href="#trustedclients">
+        <i class="fas fa-handshake"></i>
+        <span>Trusted Clients</span>
+       </a>
+      </li>
+      <li>
+       <a class="nav-link" data-section="contacts" href="#contacts">
+        <i class="fas fa-envelope-open-text"></i>
+        <span>Contact Messages</span>{% if attention.messages_week %}<span class="av-badge hot">{{ attention.messages_week }}</span>{% endif %}
+       </a>
+      </li>
+      <li class="av-nav-group">Settings</li>
+      <li>
+       <a class="nav-link" data-section="apikeys" href="#apikeys">
+        <i class="fas fa-key"></i>
+        <span>API Keys</span>
+       </a>
+      </li>
+     </ul>
+     <div class="av-side-foot">
+      <a href="/" target="_blank"><i class="fas fa-store"></i> View live store</a>
+      <a href="/profile"><i class="fas fa-user-gear"></i> My profile &amp; password</a>
+      <a href="/logout"><i class="fas fa-arrow-right-from-bracket"></i> Log out</a>
      </div>
     </div>
+    <div class="av-backdrop"></div>
     <!-- Main Content -->
     <div class="main-content">
-     <!-- Top Navbar -->
-     <nav class="navbar navbar-expand navbar-light bg-white shadow-sm rounded-4 mb-2 mt-0 px-4 py-2 d-flex justify-content-between align-items-center border border-1 border-light">
-      <!-- Search Bar -->
-      <div class="d-flex align-items-center" style="max-width: 360px; width: 100%;">
-       <div class="input-group">
-        <span class="input-group-text border-0">
-         <i class="fas fa-search" style="color:#0b2e57;">
-         </i>
-        </span>
-        <input class="form-control border-0" id="dashboardSearchInput" onkeyup="searchDashboardTables()" placeholder="Search sections / tables..." type="text"/>
-       </div>
+     <!-- Top bar -->
+     <header class="av-topbar">
+      <button class="av-burger" type="button" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+      <div class="av-crumb">
+       <div class="av-crumb-path">US VESTA Admin</div>
+       <div class="av-crumb-title">Dashboard</div>
       </div>
-      <!-- Mega Menu & Right Profile -->
-      <div class="d-flex align-items-center gap-3">
-       <div class="dropdown d-none d-md-block">
-        <button aria-expanded="false" class="btn btn-light btn-sm dropdown-toggle border-0 bg-light fw-semibold" data-bs-toggle="dropdown" type="button">
-         Quick Menu
-        </button>
-        <ul class="dropdown-menu">
-         <li>
-          <a class="dropdown-item" href="/" target="_blank">
-           <i class="fas fa-home me-2 text-warning">
-           </i>
-           Storefront Home
-          </a>
-         </li>
-         <li>
-          <a class="dropdown-item" href="/shop" target="_blank">
-           <i class="fas fa-shopping-bag me-2 text-warning">
-           </i>
-           Shop Catalog
-          </a>
-         </li>
-         <li>
-          <a class="dropdown-item" href="/for-corporates" target="_blank">
-           <i class="fas fa-building me-2 text-warning">
-           </i>
-           B2B Portal
-          </a>
-         </li>
-        </ul>
-       </div>
-       <!-- Notifications Dropdown -->
-       <div class="dropdown">
-        <div aria-expanded="false" class="position-relative cursor-pointer text-muted px-2 dropdown-toggle border-0" data-bs-toggle="dropdown" style="padding-right: 0 !important;">
-         <i class="fas fa-bell fs-5">
-         </i>
-         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 8px;">
-          3
+      <div class="av-search">
+       <i class="fas fa-magnifying-glass"></i>
+       <input id="dashboardSearchInput" onkeyup="searchDashboardTables()" placeholder="Search this page…" type="text" autocomplete="off"/>
+       <kbd>/</kbd>
+      </div>
+      <div class="dropdown">
+       <button class="av-icon-btn" data-bs-toggle="dropdown" aria-expanded="false" type="button" title="Notifications">
+        <i class="fas fa-bell"></i>
+        {% if attention_total %}<span class="av-dot">{{ attention_total }}</span>{% endif %}
+       </button>
+       <div class="dropdown-menu dropdown-menu-end av-notif-menu">
+        <div class="av-notif-head"><span>Recent activity</span>{% if attention_total %}<span class="av-pill tone-danger">{{ attention_total }} to review</span>{% endif %}</div>
+        {% for n in notifications %}
+        <a class="dropdown-item av-notif-item" href="#{{ n.section }}" onclick="event.preventDefault(); avGo('{{ n.section }}');">
+         <span class="av-notif-ico tone-{{ n.tone }}"><i class="fas {{ n.icon }}"></i></span>
+         <span>
+          <span class="av-notif-title d-block">{{ n.title }}</span>
+          <span class="av-notif-text d-block">{{ n.text|truncatechars:70 }}</span>
+          <span class="av-notif-time d-block" data-av-time="{{ n.when|date:'c' }}">{{ n.when|date:"d M, h:i A" }}</span>
          </span>
-        </div>
-        <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 p-2" style="width: 280px; border-radius: 12px; margin-top: 10px;">
-         <li class="dropdown-header fw-bold text-dark border-bottom pb-2 mb-2">
-          Notifications
-         </li>
-         <li>
-          <a class="dropdown-item rounded-3 p-2 text-wrap mb-1" href="#" onclick="showNotificationDetails('New Order', 'Order #ORD-7842 has been placed successfully.')">
-           <div class="fw-bold text-dark" style="font-size: 0.8rem;">
-            New Order Received
-           </div>
-           <div class="text-muted small" style="font-size: 0.72rem;">
-            Order #ORD-7842 placed by John.
-           </div>
-          </a>
-         </li>
-         <li>
-          <a class="dropdown-item rounded-3 p-2 text-wrap mb-1" href="#" onclick="showNotificationDetails('Return Request', 'Customer Emilee requested a return for Order #ORD-7839.')">
-           <div class="fw-bold text-dark" style="font-size: 0.8rem;">
-            Return Request
-           </div>
-           <div class="text-muted small" style="font-size: 0.72rem;">
-            Order #ORD-7839 return requested.
-           </div>
-          </a>
-         </li>
-         <li>
-          <a class="dropdown-item rounded-3 p-2 text-wrap" href="#" onclick="showNotificationDetails('System Alert', 'New partner connected using API Key.')">
-           <div class="fw-bold text-dark" style="font-size: 0.8rem;">
-            API Integration Sync
-           </div>
-           <div class="text-muted small" style="font-size: 0.72rem;">
-            Product catalog sync request logged.
-           </div>
-          </a>
-         </li>
-        </ul>
-       </div>
-       <!-- User Profile Info -->
-       <div class="d-flex align-items-center gap-2 border-start ps-3">
-        {% if request.user.profile_image %}
-        <img alt="Optimized page graphic asset" class="rounded-circle border" height="36" loading="lazy" src="{{ request.user.profile_image.url }}" width="36"/>
-        {% else %}
-        <img alt="Optimized page graphic asset" class="rounded-circle border" height="36" loading="lazy" src="/static/images/user_profile.webp" width="36"/>
-        {% endif %}
-        <div class="d-none d-lg-block">
-         <div class="fw-bold text-dark" style="font-size: 0.85rem; line-height: 1.2;">
-          {{ request.user.first_name }} {{ request.user.last_name }}
-         </div>
-         <div class="text-muted" style="font-size: 0.75rem;">
-          Administrator
-         </div>
-        </div>
+        </a>
+        {% empty %}
+        <div class="av-empty"><i class="fas fa-bell-slash"></i>No recent activity yet.</div>
+        {% endfor %}
        </div>
       </div>
-     </nav>
+      <a class="av-btn-store" href="/" target="_blank" title="View store"><i class="fas fa-store"></i><span>View store</span></a>
+      <div class="dropdown">
+       <a class="av-user text-decoration-none" data-bs-toggle="dropdown" href="#" aria-expanded="false">
+        {% if request.user.profile_image %}
+        <img alt="" src="{{ request.user.profile_image.url }}"/>
+        {% else %}
+        <img alt="" src="/static/images/user_profile.webp"/>
+        {% endif %}
+        <span class="av-user-meta">
+         <span class="av-user-name d-block">{% if request.user.first_name %}{{ request.user.first_name }}{% else %}{{ request.user.username }}{% endif %}</span>
+         <span class="av-user-role d-block">Administrator</span>
+        </span>
+       </a>
+       <ul class="dropdown-menu dropdown-menu-end">
+        <li><a class="dropdown-item" href="/profile"><i class="fas fa-user-gear me-2 text-muted"></i>Profile &amp; password</a></li>
+        <li><a class="dropdown-item" href="/" target="_blank"><i class="fas fa-store me-2 text-muted"></i>View store</a></li>
+        <li><hr class="dropdown-divider"/></li>
+        <li><a class="dropdown-item text-danger" href="/logout"><i class="fas fa-arrow-right-from-bracket me-2"></i>Log out</a></li>
+       </ul>
+      </div>
+     </header>
      <!-- Dashboard Section -->
      <div class="content-section active" id="dashboard-section">
+      <div class="av-section-title">Needs your attention</div>
+      <div class="av-attn">
+       <button type="button" class="av-attn-card{% if not attention.new_orders %} is-zero{% endif %}" onclick="avGo('orders')">
+        <span class="av-attn-ico {% if attention.new_orders %}tone-info{% else %}tone-success{% endif %}"><i class="fas {% if attention.new_orders %}fa-box-open{% else %}fa-check{% endif %}"></i></span>
+        <span><span class="av-attn-num d-block">{{ attention.new_orders }}</span><span class="av-attn-lbl d-block">{% if attention.new_orders %}New orders to ship{% else %}No new orders{% endif %}</span></span>
+        <i class="fas fa-chevron-right av-attn-go"></i>
+       </button>
+       <button type="button" class="av-attn-card{% if not attention.returns %} is-zero{% endif %}" onclick="avGo('returns')">
+        <span class="av-attn-ico {% if attention.returns %}tone-danger{% else %}tone-success{% endif %}"><i class="fas {% if attention.returns %}fa-rotate-left{% else %}fa-check{% endif %}"></i></span>
+        <span><span class="av-attn-num d-block">{{ attention.returns }}</span><span class="av-attn-lbl d-block">{% if attention.returns %}Return requests{% else %}No open returns{% endif %}</span></span>
+        <i class="fas fa-chevron-right av-attn-go"></i>
+       </button>
+       <button type="button" class="av-attn-card{% if not attention.hidden_reviews %} is-zero{% endif %}" onclick="avGo('Reviews')">
+        <span class="av-attn-ico {% if attention.hidden_reviews %}tone-warn{% else %}tone-success{% endif %}"><i class="fas {% if attention.hidden_reviews %}fa-star{% else %}fa-check{% endif %}"></i></span>
+        <span><span class="av-attn-num d-block">{{ attention.hidden_reviews }}</span><span class="av-attn-lbl d-block">{% if attention.hidden_reviews %}Reviews waiting approval{% else %}All reviews handled{% endif %}</span></span>
+        <i class="fas fa-chevron-right av-attn-go"></i>
+       </button>
+       <button type="button" class="av-attn-card{% if not attention.messages_week %} is-zero{% endif %}" onclick="avGo('contacts')">
+        <span class="av-attn-ico {% if attention.messages_week %}tone-violet{% else %}tone-success{% endif %}"><i class="fas {% if attention.messages_week %}fa-envelope{% else %}fa-check{% endif %}"></i></span>
+        <span><span class="av-attn-num d-block">{{ attention.messages_week }}</span><span class="av-attn-lbl d-block">{% if attention.messages_week %}Messages this week{% else %}No new messages{% endif %}</span></span>
+        <i class="fas fa-chevron-right av-attn-go"></i>
+       </button>
+      </div>
+      <div class="av-section-title">Quick actions</div>
+      <div class="av-quick">
+       <button type="button" onclick="avQuick('add-product')"><i class="fas fa-plus tone-gold"></i>Add product</button>
+       <button type="button" onclick="avQuick('orders')"><i class="fas fa-bag-shopping tone-info"></i>View orders</button>
+       <button type="button" onclick="avQuick('homepage')"><i class="fas fa-wand-magic-sparkles tone-violet"></i>Edit homepage</button>
+       <button type="button" onclick="avQuick('add-banner')"><i class="fas fa-images tone-success"></i>Add banner</button>
+       <button type="button" onclick="avQuick('add-blog')"><i class="fas fa-pen-nib tone-warn"></i>Write blog post</button>
+       <button type="button" onclick="avQuick('bulk-upload')"><i class="fas fa-file-excel tone-danger"></i>Bulk upload</button>
+      </div>
+      <div class="av-section-title">Store overview</div>
       <div class="row g-4">
-       <!-- 🎯 Welcome Card -->
-       <div class="col-lg-4">
-        <div class="welcome-card">
-         <div>
-          <h4>
-           Welcome Back! 👋
-          </h4>
-          <p>
-           US Vesta Commerce System
-          </p>
-         </div>
-         <div class="welcome-user">
-          {% if request.user.profile_image %}
-          <img alt="Optimized page graphic asset" loading="lazy" src="{{ request.user.profile_image.url }}"/>
-          {% else %}
-          <img alt="Optimized page graphic asset" loading="lazy" src="/static/images/user_profile.webp"/>
-          {% endif %}
-          <div>
-           <h5>
-            {{ request.user.first_name }}
-           </h5>
-           <span class="badge">
-            Admin / Owner
-           </span>
-          </div>
-         </div>
-        </div>
-       </div>
-       <!-- 🎯 Premium Metric Cards -->
-       <div class="col-lg-8">
+       <!-- Metric cards -->
+       <div class="col-12">
         <div class="row g-3">
-         <div class="col-md-6 col-xl-3">
+         <div class="col-6 col-xl-3">
           <div class="stat-card">
            <div>
             <div class="stat-label">
@@ -410,7 +285,7 @@
            </div>
           </div>
          </div>
-         <div class="col-md-6 col-xl-3">
+         <div class="col-6 col-xl-3">
           <div class="stat-card">
            <div>
             <div class="stat-label">
@@ -431,7 +306,7 @@
            </div>
           </div>
          </div>
-         <div class="col-md-6 col-xl-3">
+         <div class="col-6 col-xl-3">
           <div class="stat-card">
            <div>
             <div class="stat-label">
@@ -452,7 +327,7 @@
            </div>
           </div>
          </div>
-         <div class="col-md-6 col-xl-3">
+         <div class="col-6 col-xl-3">
           <div class="stat-card">
            <div>
             <div class="stat-label">
@@ -2754,7 +2629,7 @@
      <div class="content-section" id="subcategories-section">
       <div class="page-header">
        <h1>
-        Categories
+        Sub Categories
        </h1>
        <button class="btn btn-premium btn-premium-gold" data-bs-target="#addnewsubcategory" data-bs-toggle="modal">
         <i class="fas fa-plus">
@@ -2944,6 +2819,10 @@
               </button>
              </div>
             </td>
+           </tr>
+           {% empty %}
+           <tr>
+            <td class="av-empty" colspan="7"><i class="fas fa-box-open"></i>No orders yet. New orders appear here as soon as customers check out.</td>
            </tr>
            {% endfor %}
           </tbody>
@@ -3161,11 +3040,6 @@
        </h1>
        <div>
         {% csrf_token %}
-        <button class="btn btn-premium btn-premium-gold" id="generateReviewsBtn">
-         <i class="fas fa-robot me-1">
-         </i>
-         Generate Fake Reviews (5 per product)
-        </button>
         <button class="btn btn-premium btn-premium-gold" onclick="review_add_form()">
          <i class="fas fa-plus">
          </i>
@@ -3348,7 +3222,7 @@
          </div>
         </div>
         <div class="table-responsive" id="reviweslist">
-         <table class="display nowrap" id="reviews-session-tabel">
+         <table class="table table-hover align-middle display" id="reviews-session-tabel">
           <thead>
            <tr>
             <th>
@@ -3410,7 +3284,7 @@
              {{ a.created_at|date:"Y-m-d H:i" }}
             </td>
             <td>
-             <button class="btn btn-sm btn-premium btn-premium-primary" onclick="review_edit_form(`{{a.name}}`,`{{a.email}}`,'{{a.msg}}',{{a.star}},`{{a.show}}`,{{a.id}})">
+             <button class="btn btn-sm btn-premium btn-premium-primary" onclick="review_edit_form('{{ a.name|escapejs }}','{{ a.email|escapejs }}','{{ a.msg|escapejs }}','{{ a.star|escapejs }}','{{ a.show }}',{{ a.id }})">
               <i class="fa-solid fa-pen-to-square">
               </i>
              </button>
@@ -3858,9 +3732,6 @@
           modal.show();
       }
       </script>
-       </div>
-      </div>
-     </div>
      <!-- API Keys Section -->
      <div class="content-section" id="apikeys-section">
       <div class="page-header">
@@ -3879,46 +3750,34 @@
          <table class="table table-hover align-middle mb-0">
           <thead>
            <tr>
-            <th>
-             Key Name
-            </th>
-            <th>
-             API Key
-            </th>
-            <th>
-             Created
-            </th>
-            <th>
-             Action
-            </th>
+            <th>Mode</th>
+            <th>Public key (X-API-KEY)</th>
+            <th>Secret</th>
+            <th>Status</th>
+            <th>Created</th>
+            <th class="text-end">Action</th>
            </tr>
           </thead>
           <tbody>
            {% for a in api_keys %}
            <tr>
+            <td><span class="badge">{{ a.mode|lower }}</span></td>
             <td>
-             {{ a.key_name }}
+             <code class="me-1">{{ a.public_key }}</code>
+             <button class="btn btn-action-view" onclick="avCopy('{{ a.public_key|escapejs }}')" title="Copy" type="button"><i class="fas fa-copy"></i></button>
             </td>
-            <td>
-             <code>
-              {{ a.key }}
-             </code>
-            </td>
-            <td>
-             {{ a.created_at|date:"d M Y" }}
-            </td>
-            <td>
-             <button class="btn btn-sm btn-action-delete" onclick="deleteApiKey({{ a.id }}, this)" title="Delete">
-              <i class="fas fa-trash">
-              </i>
+            <td><code class="text-muted">{{ a.secret_key_preview }}</code></td>
+            <td><span class="badge">{% if a.is_active %}active{% else %}revoked{% endif %}</span></td>
+            <td>{{ a.created_at|date:"d M Y" }}</td>
+            <td class="text-end">
+             <button class="btn btn-action-delete" onclick="deleteApiKey('{{ a.id }}', this)" title="Delete key" type="button">
+              <i class="fas fa-trash"></i>
              </button>
             </td>
            </tr>
            {% empty %}
            <tr>
-            <td class="text-center text-muted py-4" colspan="4">
-             No API keys generated yet.
-            </td>
+            <td class="av-empty" colspan="6"><i class="fas fa-key"></i>No API keys yet. Click "Generate Key" to create one.</td>
            </tr>
            {% endfor %}
           </tbody>
@@ -4082,7 +3941,7 @@
         </div>
        </div>
       </div>
-
+     </div>
 
      <!-- Analytics Section -->
      <div class="content-section" id="analytics-section">
@@ -4386,10 +4245,12 @@ fetch(api_url)
          <form id="apiTokenForm" onsubmit="event.preventDefault(); submitApiKeyForm(this);">
           {% csrf_token %}
           <div class="mb-3">
-           <label class="form-label">
-            Key Name / Description
-           </label>
-           <input class="form-control" name="key_name" placeholder="e.g. Partner Website Integration" required="" type="text"/>
+           <label class="form-label">Key type</label>
+           <select class="form-select" name="mode">
+            <option value="TEST">Test key – for trying an integration</option>
+            <option value="LIVE">Live key – for a real partner site</option>
+           </select>
+           <div class="form-text">A new key replaces the previous active key of the same type.</div>
           </div>
           <input name="create_api_key" type="hidden" value="true"/>
           <button class="btn btn-premium btn-premium-primary w-100" type="submit">
@@ -4756,6 +4617,7 @@ fetch(api_url)
            <textarea class="form-control" id="blog_content_editor" name="blog_content" rows="8"></textarea>
           </div>
           <div class="mb-3">
+           <label class="form-label">
             Publish Date (Optional)
            </label>
            <input class="form-control" name="blog_date" type="datetime-local"/>
@@ -4935,7 +4797,9 @@ fetch(api_url)
      <!-- Bootstrap JS Bundle with Popper -->
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js">
      </script>
-     <script defer="" src="/static/js/dashboard.js?v=20261008_1">
+     <script defer="" src="/static/js/dashboard.js?v=20261128_1">
+     </script>
+     <script defer="" src="/static/js/admin-ui.js?v=20261128_1">
      </script>
      <script src="/static/js/custom-editor.js">
      </script>
@@ -5153,7 +5017,17 @@ fetch(api_url)
             })
             .then(res => res.json())
             .then(data => {
-                swal({ text: data.res, icon: "success" }).then(() => window.location.reload());
+                if (data.public_key && data.secret_key) {
+                    const box = document.createElement("div");
+                    box.style.textAlign = "left";
+                    box.innerHTML = '<p style="font-size:13px;margin:0 0 8px">Copy the secret now – it is shown only once.</p>' +
+                        '<div style="font-size:12px;color:#64748b">Public key</div><code style="display:block;word-break:break-all;margin-bottom:8px">' + data.public_key + '</code>' +
+                        '<div style="font-size:12px;color:#64748b">Secret key</div><code style="display:block;word-break:break-all">' + data.secret_key + '</code>';
+                    avCopy(data.public_key + "\n" + data.secret_key);
+                    swal({ title: "API key created", content: box, icon: "success", button: "Done" }).then(() => window.location.reload());
+                } else {
+                    swal({ text: data.res, icon: "success" }).then(() => window.location.reload());
+                }
             })
             .catch(err => console.error(err));
         }
@@ -5172,7 +5046,7 @@ fetch(api_url)
             .then(res => res.json())
             .then(data => {
                 swal({ text: data.res, icon: "success" }).then(() => {
-                    btn.closest("tr").remove();
+                    (btn.closest(".card-item-container, tr, [class*='col-']") || btn.parentElement).remove();
                 });
             });
         }
@@ -5208,7 +5082,7 @@ fetch(api_url)
             .then(res => res.json())
             .then(data => {
                 swal({ text: data.res, icon: "success" }).then(() => {
-                    btn.closest("tr").remove();
+                    (btn.closest(".card-item-container, tr, [class*='col-']") || btn.parentElement).remove();
                 });
             });
         }
@@ -5244,7 +5118,7 @@ fetch(api_url)
             .then(res => res.json())
             .then(data => {
                 swal({ text: data.res, icon: "success" }).then(() => {
-                    btn.closest(".card-item-container").remove();
+                    (btn.closest(".card-item-container, tr, [class*='col-']") || btn.parentElement).remove();
                 });
             });
         }
@@ -5280,7 +5154,7 @@ fetch(api_url)
             .then(res => res.json())
             .then(data => {
                 swal({ text: data.res, icon: "success" }).then(() => {
-                    btn.closest(".card-item-container").remove();
+                    (btn.closest(".card-item-container, tr, [class*='col-']") || btn.parentElement).remove();
                 });
             });
         }
@@ -5316,7 +5190,7 @@ fetch(api_url)
             .then(res => res.json())
             .then(data => {
                 swal({ text: data.res, icon: "success" }).then(() => {
-                    btn.closest(".card-item-container").remove();
+                    (btn.closest(".card-item-container, tr, [class*='col-']") || btn.parentElement).remove();
                 });
             });
         }
@@ -5352,7 +5226,7 @@ fetch(api_url)
             .then(res => res.json())
             .then(data => {
                 swal({ text: data.res, icon: "success" }).then(() => {
-                    btn.closest(".card-item-container").remove();
+                    (btn.closest(".card-item-container, tr, [class*='col-']") || btn.parentElement).remove();
                 });
             });
         }
@@ -5388,7 +5262,7 @@ fetch(api_url)
             .then(res => res.json())
             .then(data => {
                 swal({ text: data.res, icon: "success" }).then(() => {
-                    btn.closest("tr").remove();
+                    (btn.closest(".card-item-container, tr, [class*='col-']") || btn.parentElement).remove();
                 });
             });
         }
@@ -5424,7 +5298,7 @@ fetch(api_url)
             .then(res => res.json())
             .then(data => {
                 swal({ text: data.res, icon: "success" }).then(() => {
-                    btn.closest("tr").remove();
+                    (btn.closest(".card-item-container, tr, [class*='col-']") || btn.parentElement).remove();
                 });
             });
         }
@@ -5444,7 +5318,7 @@ fetch(api_url)
             .then(res => res.json())
             .then(data => {
                 swal({ text: data.res, icon: "success" }).then(() => {
-                    btn.closest("tr").remove();
+                    (btn.closest(".card-item-container, tr, [class*='col-']") || btn.parentElement).remove();
                 });
             });
         }

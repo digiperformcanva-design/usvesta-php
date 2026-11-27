@@ -48,6 +48,37 @@ final class Dahsboardview
         }
         $merchant = Merchant::filter(['user' => $u->pk()])->first();
 
+        // ---- "Needs attention" counters + real notifications for the redesigned panel
+        $weekAgo = gmdate('Y-m-d H:i:s', time() - 7 * 86400);
+        $attention = [
+            'new_orders' => Order::filter(['status' => 'Ordered'])->count(),
+            'returns' => Order::filter(['status__in' => ['Return in process', 'Return']])->count(),
+            'cancelled' => Order::filter(['status' => 'Cancelled'])->count(),
+            'unpaid_online' => Order::filter(['payment_method' => 'Online', 'payment_status__in' => ['Pending', 'pending']])->count(),
+            'hidden_reviews' => User_Reviews::filter(['show' => false])->count(),
+            'messages_week' => Contact_US::filter(['date__gte' => $weekAgo])->count(),
+            'messages_total' => Contact_US::objects()->count(),
+            'abandoned' => Leave_checkout_page_billing_details::objects()->count(),
+            'draft_products' => Product::filter(['product_status' => 'Draft'])->count(),
+            'blog_posts' => Blog_post::objects()->count(),
+        ];
+        $events = [];
+        foreach (Order::objects()->exclude(['status' => 'Pending'])->order_by('-id')->slice(0, 6) as $o) {
+            $who = Order::parseAddress($o->raw('address'))['first_name'] ?? ($o->raw('custom_name') ?: 'Customer');
+            $events[] = ['icon' => 'fa-bag-shopping', 'tone' => 'success', 'section' => 'orders', 'when' => $o->created_at,
+                'title' => 'Order · ' . $o->raw('status'), 'text' => $who . ' · ₹' . number_format((float)$o->raw('total_price'), 0)];
+        }
+        foreach (Return_and_Cancel_products::objects()->order_by('-id')->slice(0, 4) as $rc) {
+            $events[] = ['icon' => $rc->raw('cancel_request') ? 'fa-ban' : 'fa-rotate-left', 'tone' => 'danger', 'section' => 'returns', 'when' => $rc->create_at,
+                'title' => $rc->raw('cancel_request') ? 'Cancellation request' : 'Return request', 'text' => (string)$rc->raw('reason')];
+        }
+        foreach (Contact_US::objects()->order_by('-id')->slice(0, 4) as $c) {
+            $events[] = ['icon' => 'fa-envelope', 'tone' => 'info', 'section' => 'contacts', 'when' => $c->date,
+                'title' => 'Message from ' . $c->raw('name'), 'text' => mb_strimwidth((string)$c->raw('message'), 0, 60, '…')];
+        }
+        usort($events, fn($a, $b) => ($b['when']?->getTimestamp() ?? 0) <=> ($a['when']?->getTimestamp() ?? 0));
+        $events = array_slice($events, 0, 8);
+
         return render($r, 'dashboard/dashboard.html', [
             'category' => Product_category::objects()->order_by('id'),
             'all_orders' => $valid->order_by('-id'),
@@ -70,6 +101,9 @@ final class Dahsboardview
             'return_requests' => Return_and_Cancel_products::objects()->order_by('-id'),
             'customers' => CustomUser::objects()->order_by('-id'),
             'merchants' => Merchant::objects()->order_by('-created_at'),
+            'attention' => $attention,
+            'notifications' => $events,
+            'attention_total' => $attention['new_orders'] + $attention['returns'] + $attention['messages_week'],
             'total_orders' => $valid->count(),
             'total_revenue' => (float)($rev ?? 0),
             'total_customers' => CustomUser::filter(['is_superuser' => false])->count(),

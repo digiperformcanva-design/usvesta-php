@@ -153,6 +153,7 @@ final class T
     public static function iter(mixed $v): array
     {
         if ($v instanceof Undefined || $v === null || $v === false) return [];
+        if ($v instanceof SafeString) return mb_str_split($v->value);
         if (is_array($v)) return array_values($v);
         if ($v instanceof Traversable) return iterator_to_array($v, false);
         if (is_string($v)) return mb_str_split($v);

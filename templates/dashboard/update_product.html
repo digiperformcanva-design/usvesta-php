@@ -12,23 +12,39 @@
   <link href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css" rel="stylesheet"/>
   <link href="https://cdn.datatables.net/buttons/3.2.2/css/buttons.dataTables.css" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
-  <link href="/static/assets/css/dashboard.css" rel="stylesheet"/>
+  <link href="/static/css/dashboard.css" rel="stylesheet"/>
   <link href="/static/css/custom-editor.css" rel="stylesheet" type="text/css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="/static/css/admin-theme.css?v=20261128_1" rel="stylesheet"/>
+  <meta name="robots" content="noindex, nofollow"/>
+  <style>
+    .av-edit-wrap { max-width: 1280px; margin: 0 auto; padding: 0 24px 48px; }
+    .av-edit-wrap .av-topbar { margin: 0 -24px 24px; }
+    @media (max-width: 767px) { .av-edit-wrap { padding: 0 14px 40px; } .av-edit-wrap .av-topbar { margin: 0 -14px 18px; } }
+  </style>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js">
   </script>
   <meta content="Professional optimized web page with high performance, security compliance, and full mobile SEO optimization." name="description"/>
  </head>
  <body>
-  <div class="mx-5">
+  <div class="av-edit-wrap">
+   <header class="av-topbar">
+    <a class="av-icon-btn" href="/usvesta-deshboard/#products" title="Back to products"><i class="fas fa-arrow-left"></i></a>
+    <div class="av-crumb">
+     <div class="av-crumb-path">Catalog › <b>Products</b></div>
+     <div class="av-crumb-title">Edit product{% if product_type == "inner-product" %} (colour variant){% endif %}</div>
+    </div>
+    <a class="av-btn-store" href="{% if a.uuid_product %}/products/{{ a.uuid_product }}{% else %}/shop{% endif %}" target="_blank"><i class="fas fa-eye"></i><span>View on store</span></a>
+   </header>
    <div class="page-header">
     <h1>
-     Add New Product
+     <span class="av-h-icon"><i class="fas fa-pen"></i></span>
+     <span class="av-h-wrap"><span>{{ a.product_name|default:a.product.product_name|truncatechars:70 }}</span><span class="av-h-sub">Change the details below, then press Update at the bottom. Changes go live straight away.</span></span>
     </h1>
     <div>
-     <a class="btn btn-outline-primary me-2" href="/usvesta-deshboard" onclick="add_product_form()">
-      <i class="fas fa-arrow-left me-1">
-      </i>
-      GO Back
+     <a class="btn btn-premium btn-premium-outline" href="/usvesta-deshboard/#products">
+      <i class="fas fa-arrow-left me-1"></i>
+      Back to products
      </a>
     </div>
    </div>
@@ -579,10 +595,6 @@
         }
   </script>
   <!-- Bootstrap JS Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js">
-  </script>
-  <script src="/static/assets/js/dashboard.js">
-  </script>
   <script src="/static/js/custom-editor.js">
   </script>
   <script>
