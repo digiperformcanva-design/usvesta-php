@@ -1,0 +1,13 @@
+# secrets & local data – never commit
+config.local.php
+usvesta-config.php
+usvesta-data.sql*
+*.sqlite3
+
+# runtime files
+storage/cache/*
+storage/logs/*
+storage/sessions/*
+storage/bulk_uploads/*
+!storage/**/.gitkeep
+.DS_Store
